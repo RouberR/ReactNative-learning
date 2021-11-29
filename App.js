@@ -11,7 +11,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 // const Tab = createBottomTabNavigator();
 // const Tab = createMaterialBottomTabNavigator()
-const Tab = ();
+const Tab = createMaterialTopTabNavigator();
 
 const App = () => {
   return (
@@ -42,7 +42,7 @@ const App = () => {
         inactiveColor="#3e2465"
       >
         <Tab.Screen name="Screen_A" component={ScreenA} 
-          options={{tabBarBadge: 5}}
+          
         />
         <Tab.Screen name="Screen_B" component={ScreenB} />
       </Tab.Navigator>
