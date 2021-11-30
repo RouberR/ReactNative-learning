@@ -1,20 +1,28 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-const ScreenA = ({ navigation }) => {
+import GlobalStyle from '../utils/GlobalStyle'
+const ScreenB = ({navigation, route}) => {
+
+  const {ItenName, ItemId} = route.params
+
   const onPressHandler = () => {
-    navigation.navigate('Screen_B')
+    // navigation.navigate('Screen_A')
+    navigation.goBack()
   }
   return (
     <View style={styles.body}>
-      <Text style={styles.text}>ScreenA</Text>
+      <Text style={styles.text}>ScreenB</Text>
       <Pressable onPress={onPressHandler} style={({ pressed }) => ({ backgroundColor: pressed ? '#ddd' : '#0f0' })}>
-        <Text style={styles.text}>Go to Screen B</Text>
+        <Text style={GlobalStyle.ButtonText}>Go to Back</Text>
       </Pressable>
+
+      <Text style={styles.text}>{ItenName}</Text>
+      <Text style={styles.text}>ID: {ItemId}</Text>
     </View>
   )
 }
 
-export default ScreenA
+export default ScreenB
 
 const styles = StyleSheet.create({
   body: {
