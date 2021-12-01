@@ -10,6 +10,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Provider } from 'react-redux'
 import { Store } from './src/redux/store'
+import Camera from './src/screens/Camera'
 const Stack = createStackNavigator()
 
 const App = () => {
@@ -27,6 +28,10 @@ const App = () => {
           options={{
             headerShown: false
           }}
+        />
+        <Stack.Screen
+          name="Camera"
+          component={Camera}
         />
       </Stack.Navigator>
     </NavigationContainer>

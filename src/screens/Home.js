@@ -61,6 +61,7 @@ const Home = ({ navigation }) => {
       <TextInput style={styles.input} placeholder="Enter your name" value={name} onChangeText={(value) => dispatch(setName(value))}/>
       <CustomButton onPressHandler={updateData} text={"Update"} />
       <CustomButton onPressHandler={removeData} text={"Remove name"} color={"red"} style={{marginTop:15}}/>
+      <CustomButton onPressHandler={() => navigation.navigate("Camera")} text={"Open Camera"} color={"blue"} style={{marginTop:15}}/>
     </View>
   )
 }
