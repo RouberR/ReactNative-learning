@@ -3,14 +3,20 @@ import React, {useState, useEffect} from 'react'
 import GlobalStyle from '../utils/GlobalStyle'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import CustomButton from '../utils/CustomButton'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { setName } from '../redux/actions'
 const Home = ({ navigation }) => {
-  const [name, setName] = useState("")
+  
+  const {name} = useSelector(state=>state.userReducer)
+  const dispatch = useDispatch()
+  // const [name, setName] = useState("")
+
+
   const getData = () => {
     try {
       AsyncStorage.getItem("UserName").then(value => {
         if(value != null ){
-          setName(value)
+          dispatch(setName(value))
         }
       })
     } catch (error) {
@@ -23,6 +29,7 @@ const Home = ({ navigation }) => {
       Alert.alert('Warning', 'Please write your name')
     } else {
       try {
+        dispatch(setName(name))
         await AsyncStorage.setItem('UserName', name)
         Alert.alert("Success!", "Your data has been updated")
       } catch (error) {
@@ -51,7 +58,7 @@ const Home = ({ navigation }) => {
       <Text style={[
         GlobalStyle.CustomFont,
         styles.text]}>Welcome {name}</Text>
-      <TextInput style={styles.input} placeholder="Enter your name" value={name} onChangeText={(value) => setName(value)}/>
+      <TextInput style={styles.input} placeholder="Enter your name" value={name} onChangeText={(value) => dispatch(setName(value))}/>
       <CustomButton onPressHandler={updateData} text={"Update"} />
       <CustomButton onPressHandler={removeData} text={"Remove name"} color={"red"} style={{marginTop:15}}/>
     </View>

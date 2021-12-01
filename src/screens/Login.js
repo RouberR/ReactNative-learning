@@ -4,8 +4,13 @@ import { useState } from 'react/cjs/react.development'
 import logo from '../../assets/img/game.png'
 import CustomButton from '../utils/CustomButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useSelector, useDispatch } from 'react-redux'
+import { setName } from '../redux/actions'
 const Login = ({ navigation }) => {
-  const [name, setName] = useState('')
+
+  const {name} = useSelector(state=>state.userReducer)
+  const dispatch = useDispatch()
+  // const [name, setName] = useState('')
 
   const getData = () => {
     try {
@@ -24,6 +29,7 @@ const Login = ({ navigation }) => {
       Alert.alert('Warning', 'Please write your name')
     } else {
       try {
+        dispatch(setName(name))
         await AsyncStorage.setItem('UserName', name)
         navigation.navigate('Home')
       } catch (error) {
@@ -40,7 +46,7 @@ const Login = ({ navigation }) => {
     <View style={styles.body}>
       <Image style={styles.logo} source={logo} />
       <Text style={styles.text}>Async Storage</Text>
-      <TextInput style={styles.input} placeholder="Enter your name" onChangeText={value => setName(value)} />
+      <TextInput style={styles.input} placeholder="Enter your name" onChangeText={value => dispatch(setName(value))} />
       <CustomButton text={'Login'} color={'#1eb900'} style={{ margin: 10 }} onPressHandler={onPressHandler} />
     </View>
   )

@@ -8,11 +8,13 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createStackNavigator } from '@react-navigation/stack'
-
+import { Provider } from 'react-redux'
+import { Store } from './src/redux/store'
 const Stack = createStackNavigator()
 
 const App = () => {
   return (
+    <Provider store={Store}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName= "Login">
         <Stack.Screen
@@ -28,6 +30,8 @@ const App = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
+
   )
 }
 
