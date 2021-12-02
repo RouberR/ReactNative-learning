@@ -13,6 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { Provider } from 'react-redux'
 import { Store } from './src/redux/store'
 import Camera from './src/screens/Camera'
+import Task from './src/screens/Task'
 
 const Tab = createBottomTabNavigator()
 
@@ -73,6 +74,10 @@ const App = () => {
             }}
           />
           <RootStack.Screen name="My Tasks" component={HomeTabs} />
+          <RootStack.Screen
+            name="Task"
+            component={Task}
+          />
         </RootStack.Navigator>
       </NavigationContainer>
     </Provider>

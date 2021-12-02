@@ -1,8 +1,16 @@
-export const SET_USER_NAME = "SET_USER_NAME";
+export const SET_TASKS = "SET_TASKS";
+export const SET_TASKS_ID = "SET_TASKS_ID";
 
-export const setName = name => dispatch => {
+export const setTasks = tasks => dispatch => {
     dispatch({
-        type: SET_USER_NAME,
-        payload: name,
+        type: SET_TASKS,
+        payload: tasks,
+    })
+}
+
+export const setTasksID = tasksID => dispatch => {
+    dispatch({
+        type: SET_TASKS_ID,
+        payload: tasksID,
     })
 }

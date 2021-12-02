@@ -9,8 +9,8 @@ import { setName } from '../redux/actions'
 import GlobalStyle from '../utils/GlobalStyle'
 const Login = ({ navigation }) => {
 
-  const {name} = useSelector(state=>state.userReducer)
-  const dispatch = useDispatch()
+  // const {name} = useSelector(state=>state.userReducer)
+  // const dispatch = useDispatch()
   // const [name, setName] = useState('')
 
 
