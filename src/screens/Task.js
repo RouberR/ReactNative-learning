@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setTasksID, setTasks } from '../redux/actions'
 import CustomButton from '../utils/CustomButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import CheckBox from '@react-native-community/checkbox';
 export default function Task({ navigation }) {
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
+  const [done, setDone] = useState(false)
 
   const { tasks, tasksID } = useSelector(state => state.taskReducer)
   const dispatch = useDispatch()
@@ -20,6 +22,7 @@ export default function Task({ navigation }) {
     if (Task) {
       setTitle(Task.Title)
       setDesc(Task.Desc)
+      setDone(Task.Done)
     }
   }
 
@@ -31,7 +34,8 @@ export default function Task({ navigation }) {
         const Task = {
           ID: tasksID,
           Title: title,
-          Desc: desc
+          Desc: desc,
+          Done: done
         }
         const index = tasks.findIndex(task => task.ID === tasksID)
         let newTasks = []
@@ -64,6 +68,15 @@ export default function Task({ navigation }) {
         multiline
         onChangeText={value => setDesc(value)}
       />
+      <View srtle={styles.checkBox}>
+      <CheckBox
+        value={done}
+        onValueChange={(newValue) => setDone(newValue)}
+      />
+      <Text style={styles.text}>
+        Is Done
+      </Text>
+      </View>
       <CustomButton text="Save Task" color="#11eb90" style={{ width: '100%' }} onPressHandler={setTask} />
     </View>
   )
@@ -85,5 +98,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     margin: 10,
     paddingHorizontal: 10
+  },
+  checkBox:{
+    flexDirection: "row",
+    margin: 10,
+  },
+  text:{
+    fontSize: 20,
+    color: "#000000",
   }
 })
