@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Alert, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Alert, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTasksID, setTasks } from '../redux/actions'
 import CustomButton from '../utils/CustomButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import CheckBox from '@react-native-community/checkbox';
+import CheckBox from '@react-native-community/checkbox'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 export default function Task({ navigation }) {
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [done, setDone] = useState(false)
+  const [color, setColor] = useState('#ffffff')
 
   const { tasks, tasksID } = useSelector(state => state.taskReducer)
   const dispatch = useDispatch()
@@ -23,6 +25,7 @@ export default function Task({ navigation }) {
       setTitle(Task.Title)
       setDesc(Task.Desc)
       setDone(Task.Done)
+      setColor(Task.Color)
     }
   }
 
@@ -35,7 +38,8 @@ export default function Task({ navigation }) {
           ID: tasksID,
           Title: title,
           Desc: desc,
-          Done: done
+          Done: done,
+          Color: color
         }
         const index = tasks.findIndex(task => task.ID === tasksID)
         let newTasks = []
@@ -68,14 +72,43 @@ export default function Task({ navigation }) {
         multiline
         onChangeText={value => setDesc(value)}
       />
-      <View srtle={styles.checkBox}>
-      <CheckBox
-        value={done}
-        onValueChange={(newValue) => setDone(newValue)}
-      />
-      <Text style={styles.text}>
-        Is Done
-      </Text>
+      <View style={styles.color_bar}>
+        <TouchableOpacity
+          style={styles.color_white}
+          onPress={() => {
+            setColor('#ffffff')
+          }}
+        >
+          {color === '#ffffff' && <FontAwesome5 name={'check'} size={25} color={'#000000'} />}
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.color_red}
+          onPress={() => {
+            setColor('#f28b82')
+          }}
+        >
+          {color === '#f28b82' && <FontAwesome5 name={'check'} size={25} color={'#000000'} />}
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.color_blue}
+          onPress={() => {
+            setColor('#aecbfa')
+          }}
+        >
+          {color === '#aecbfa' && <FontAwesome5 name={'check'} size={25} color={'#000000'} />}
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.color_green}
+          onPress={() => {
+            setColor('#ccff90')
+          }}
+        >
+          {color === '#ccff90' && <FontAwesome5 name={'check'} size={25} color={'#000000'} />}
+        </TouchableOpacity>
+      </View>
+      <View style={styles.checkBox}>
+        <CheckBox value={done} onValueChange={newValue => setDone(newValue)} />
+        <Text style={styles.text}>Is Done</Text>
       </View>
       <CustomButton text="Save Task" color="#11eb90" style={{ width: '100%' }} onPressHandler={setTask} />
     </View>
@@ -99,12 +132,48 @@ const styles = StyleSheet.create({
     margin: 10,
     paddingHorizontal: 10
   },
-  checkBox:{
-    flexDirection: "row",
-    margin: 10,
+  checkBox: {
+    flexDirection: 'row',
+    margin: 10
   },
-  text:{
+  text: {
     fontSize: 20,
-    color: "#000000",
+    color: '#000000'
+  },
+  color_bar: {
+    flexDirection: 'row',
+    height: 50,
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: '#555555',
+    marginVertical: 10
+  },
+  color_white: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10
+  },
+  color_red: {
+    flex: 1,
+    backgroundColor: '#f28b82',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  color_blue: {
+    flex: 1,
+    backgroundColor: '#aecbfa',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  color_green: {
+    flex: 1,
+    backgroundColor: '#ccff90',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10
   }
 })

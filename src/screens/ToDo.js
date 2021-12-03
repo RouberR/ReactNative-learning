@@ -51,16 +51,23 @@ const ToDo = ({ navigation }) => {
   return (
     <View style={styles.body}>
       <FlatList
-        data={tasks}
+        data={tasks.filter(task => task.Done === false)}
         renderItem={({ item }) => (
           <TouchableOpacity
-            style={styles.item}
+            style={[styles.item, {backgroundColor: item.Color}]}
             onPress={() => {
               dispatch(setTasksID(item.ID))
               navigation.navigate('Task')
             }}
           >
             <View style={styles.item_row}>
+            {/* <View
+              style={[
+                {
+                backgroundColor: item.Color
+                },
+                styles.color]}
+            /> */}
               <CheckBox
                 value={item.Done}
                 onValueChange={newValue => {
@@ -148,7 +155,11 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+  // color:{
+  //   width: 20,
+  //   height: 100,
+  // }
 })
 
 export default ToDo
