@@ -32,6 +32,10 @@
 		FB185ACF959D4673A29D5A3B /* DancingScript-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6019E6ED35342F48FF9EB81 /* DancingScript-Medium.ttf */; };
 		076BCADFDA314EE5BEF829FA /* DancingScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A202FA9EB0CC4F699A6A5795 /* DancingScript-Regular.ttf */; };
 		B06E9D902F2C4FFE95677953 /* DancingScript-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA1C2BEA979C4AE78E165D79 /* DancingScript-SemiBold.ttf */; };
+		4B786BCA3A4A4CD7814E3690 /* Caveat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA908A84915F41EBB15B948D /* Caveat-Bold.ttf */; };
+		60953C25FD9E4C21803964D8 /* Caveat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4E9458930EF455AB8A8C419 /* Caveat-Medium.ttf */; };
+		791F059920EC4F718047AA1B /* Caveat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E092A8F17094080ADB78468 /* Caveat-Regular.ttf */; };
+		202DB4DE012D4392A5E94044 /* Caveat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA5BFAC415C74F15A198D3FF /* Caveat-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		E6019E6ED35342F48FF9EB81 /* DancingScript-Medium.ttf */ = {isa = PBXFileReference; name = "DancingScript-Medium.ttf"; path = "../assets/fonts/DancingScript-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A202FA9EB0CC4F699A6A5795 /* DancingScript-Regular.ttf */ = {isa = PBXFileReference; name = "DancingScript-Regular.ttf"; path = "../assets/fonts/DancingScript-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		DA1C2BEA979C4AE78E165D79 /* DancingScript-SemiBold.ttf */ = {isa = PBXFileReference; name = "DancingScript-SemiBold.ttf"; path = "../assets/fonts/DancingScript-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FA908A84915F41EBB15B948D /* Caveat-Bold.ttf */ = {isa = PBXFileReference; name = "Caveat-Bold.ttf"; path = "../assets/fonts/Caveat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F4E9458930EF455AB8A8C419 /* Caveat-Medium.ttf */ = {isa = PBXFileReference; name = "Caveat-Medium.ttf"; path = "../assets/fonts/Caveat-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6E092A8F17094080ADB78468 /* Caveat-Regular.ttf */ = {isa = PBXFileReference; name = "Caveat-Regular.ttf"; path = "../assets/fonts/Caveat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DA5BFAC415C74F15A198D3FF /* Caveat-SemiBold.ttf */ = {isa = PBXFileReference; name = "Caveat-SemiBold.ttf"; path = "../assets/fonts/Caveat-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +196,10 @@
 				E6019E6ED35342F48FF9EB81 /* DancingScript-Medium.ttf */,
 				A202FA9EB0CC4F699A6A5795 /* DancingScript-Regular.ttf */,
 				DA1C2BEA979C4AE78E165D79 /* DancingScript-SemiBold.ttf */,
+				FA908A84915F41EBB15B948D /* Caveat-Bold.ttf */,
+				F4E9458930EF455AB8A8C419 /* Caveat-Medium.ttf */,
+				6E092A8F17094080ADB78468 /* Caveat-Regular.ttf */,
+				DA5BFAC415C74F15A198D3FF /* Caveat-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -303,6 +315,10 @@
 				FB185ACF959D4673A29D5A3B /* DancingScript-Medium.ttf in Resources */,
 				076BCADFDA314EE5BEF829FA /* DancingScript-Regular.ttf in Resources */,
 				B06E9D902F2C4FFE95677953 /* DancingScript-SemiBold.ttf in Resources */,
+				4B786BCA3A4A4CD7814E3690 /* Caveat-Bold.ttf in Resources */,
+				60953C25FD9E4C21803964D8 /* Caveat-Medium.ttf in Resources */,
+				791F059920EC4F718047AA1B /* Caveat-Regular.ttf in Resources */,
+				202DB4DE012D4392A5E94044 /* Caveat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

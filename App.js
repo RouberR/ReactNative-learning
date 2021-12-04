@@ -6,8 +6,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import Splash from './src/screens/Splash'
 import Done from './src/screens/Done'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Provider } from 'react-redux'
@@ -26,33 +24,36 @@ function HomeTabs() {
           if (route.name === 'ToDo') {
             iconName = 'clipboard-list'
             size = focused ? 25 : 20
-            color = focused ? "blue" : "grey"
+            color = focused ? 'blue' : 'grey'
           } else if (route.name === 'Done') {
             iconName = 'clipboard-check'
             size = focused ? 25 : 20
-            color = focused ? "blue" : "grey"
+            color = focused ? 'blue' : 'grey'
           }
           return <FontAwesome5 name={iconName} size={size} color={color} />
-        }
+        },
+        tabBarLabelStyle: {
+          fontSize: 15,
+          fontWeight: 'bold'
+        },
+        tabBarInactiveTintColor: '#AEB2B4',
+        tabBarActiveTintColor: '#0080ff'
       })}
-      tabBarOptions={{
-        activeTintColor: '#0080ff',
-        inactiveTintColor: '#77777',
-        labelStyle: { fontSize: 15, fontWeight: 'bold' }
-      }}
     >
       <Tab.Screen
         name={'ToDo'}
         component={ToDo}
         options={{
-          headerShown: false
+          headerShown: false,
+          title: 'Задачи'
         }}
       />
       <Tab.Screen
         name={'Done'}
         component={Done}
         options={{
-          headerShown: false
+          headerShown: false,
+          title: 'Выполненные задачи'
         }}
       />
     </Tab.Navigator>
@@ -73,10 +74,32 @@ const App = () => {
               headerShown: false
             }}
           />
-          <RootStack.Screen name="My Tasks" component={HomeTabs} />
+          <RootStack.Screen
+            name="My Tasks"
+            component={HomeTabs}
+            options={{
+              title: 'Мои задачи',
+              headerStyle: { backgroundColor: 'tomato' },
+              headerTintColor: 'white'
+            }}
+          />
           <RootStack.Screen
             name="Task"
             component={Task}
+            options={{
+              title: 'Задача',
+              headerStyle: { backgroundColor: '#00BFF9' },
+              headerTintColor: 'white'
+            }}
+          />
+          <RootStack.Screen
+            name="Camera"
+            component={Camera}
+            options={{
+              title: 'Камера',
+              headerStyle: { backgroundColor: '#C500F9' },
+              headerTintColor: 'white'
+            }}
           />
         </RootStack.Navigator>
       </NavigationContainer>
