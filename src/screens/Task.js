@@ -19,7 +19,7 @@ export default function Task({ navigation }) {
   const [done, setDone] = useState(false)
   const [color, setColor] = useState('#ffffff')
   const [showBellModal, setShowBellModal] = useState(false)
-  const [bellTimeMin, setBellTimeMin] = useState('5')
+  const [bellTimeMin, setBellTimeMin] = useState('15')
   const [bellTimeHour, setBellTimeHour] = useState('0')
 
   const [image, setImage] = useState('')
@@ -82,7 +82,7 @@ export default function Task({ navigation }) {
       channelId: 'task-channel',
       title: title,
       message: desc,
-      date: new Date(Date.now() + parseInt(bellTimeMin) * 60 * 1000),
+      date: new Date(Date.now() + (parseInt(bellTimeMin) * 60 * 1000) + (parseInt(bellTimeHour) * 3600 * 1000 )),
       allowWhileIdle: true
     })
   }
@@ -117,16 +117,16 @@ export default function Task({ navigation }) {
           <View style={styles.centered_view}>
             <View style={styles.bell_modal}>
               <View style={styles.bell_body}>
-                <Text style={GlobalStyle.TaskSubText}>Напомнить через</Text>
+                <Text style={GlobalStyle.TaskSubText}>Напомнить через </Text>
                 <Text style={GlobalStyle.TaskSubText}>часов:минут</Text>
                 <View style={styles.bell_buttons}>
                 <TextInput
-                  value={bellTimeMin}
-                  onChangeText={value => setBellTimeMin(value)}
+                  value={bellTimeHour}
+                  onChangeText={value => setBellTimeHour(value)}
                   style={styles.bell_input}
                   keyboardType="numeric"
                 />     
-                <Text style={[styles.text, {fontSize: 25,  marginTop: 15}]}>:</Text>   
+                <Text style={[styles.text, {fontSize: 25,  marginTop: 20}]}>:</Text>   
                 <TextInput
                   value={bellTimeMin}
                   onChangeText={value => setBellTimeMin(value)}
@@ -337,7 +337,7 @@ const styles = StyleSheet.create({
   },
   bell_input: {
     width: 60,
-    height: 50,
+    height: 60,
     borderWidth: 1,
     borderColor: '#555555',
     borderRadius: 10,
